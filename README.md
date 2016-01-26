@@ -43,7 +43,8 @@ Hello Hadoop Goodbye Hadoop
 
 The job that we're going to run is the canonical wordcount example - it counts the number of words in a file (set of files).
 
-**Java**
+##### Java
+
 To run the java job, we'll first create a jar and then tell `hadoop` to run it.
 
 ```
@@ -128,7 +129,7 @@ Found 3 items
 drwxr-xr-x   - training supergroup          0 2016-01-25 23:09 /user/csds/output/_logs
 -rw-r--r--   1 training supergroup         41 2016-01-25 23:09 /user/csds/output/part-r-00000
 
-$ hadoop fs -cat /user/csds/output/part-r-00000
+$ hadoop fs -cat /user/csds/output/part-r-00000a
 Bye	1
 Goodbye	1
 Hadoop	2
@@ -136,3 +137,47 @@ Hello	2
 World	2
 ```
 Awesome! Our hadoop job ran correctly. 
+
+##### Python
+
+Hadoop, by default, only supports Java for writing MR jobs. However, its [streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html) API allows us to provide any shell executable program to be the mapper and the reducer. The `python-example` folder has the corresponding code for `mapper` and `reducer`. 
+
+Since our `input` folder already exists in HDFS, we will need to create the folder again. Let's directly run the MR job
+
+```
+$ cd python-example
+$ hs mapper.py reducer.py /user/csds/input/* /user/csds/outputpy
+packageJobJar: [mapper.py, reducer.py, /tmp/hadoop-training/hadoop-unjar6628549512020884250/] [] /tmp/streamjob6598847338247804626.jar tmpDir=null
+16/01/26 00:29:26 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+16/01/26 00:29:26 WARN snappy.LoadSnappy: Snappy native library is available
+16/01/26 00:29:26 INFO snappy.LoadSnappy: Snappy native library loaded
+16/01/26 00:29:26 INFO mapred.FileInputFormat: Total input paths to process : 2
+16/01/26 00:29:27 INFO streaming.StreamJob: getLocalDirs(): [/var/lib/hadoop-hdfs/cache/training/mapred/local]
+16/01/26 00:29:27 INFO streaming.StreamJob: Running job: job_201601260027_0001
+16/01/26 00:29:27 INFO streaming.StreamJob: To kill this job, run:
+16/01/26 00:29:27 INFO streaming.StreamJob: UNDEF/bin/hadoop job  -Dmapred.job.tracker=0.0.0.0:8021 -kill job_201601260027_0001
+16/01/26 00:29:27 INFO streaming.StreamJob: Tracking URL: http://0.0.0.0:50030/jobdetails.jsp?jobid=job_201601260027_0001
+16/01/26 00:29:28 INFO streaming.StreamJob:  map 0%  reduce 0%
+16/01/26 00:29:32 INFO streaming.StreamJob:  map 100%  reduce 0%
+16/01/26 00:29:35 INFO streaming.StreamJob:  map 100%  reduce 100%
+16/01/26 00:29:36 INFO streaming.StreamJob: Job complete: job_201601260027_0001
+16/01/26 00:29:36 INFO streaming.StreamJob: Output: /user/csds/outputpy
+
+$ hadoop fs -ls /user/csds/outputpy
+Found 3 items
+-rw-r--r--   1 training supergroup          0 2016-01-26 00:29 /user/csds/outputpy/_SUCCESS
+drwxr-xr-x   - training supergroup          0 2016-01-26 00:29 /user/csds/outputpy/_logs
+-rw-r--r--   1 training supergroup         41 2016-01-26 00:29 /user/csds/outputpy/part-00000
+
+$ hadoop fs -cat /user/csds/outputpy/part-00000
+Bye	1
+Goodbye	1
+Hadoop	2
+Hello	2
+World	2
+```
+
+##### Tracking jobs
+Hadoop provides a simple interface to track the status of MR jobs. To view it, you first need to get the VM ip using `ifconfig`. Then note the `inet addr` address. Finally, open `http://ip:50030/jobtracker.jsp` on your local machine. Alternatively, you can also open Firefox in the VM and browse to `http://localhost:50030/jobtracker.jsp` to view the jobs.
+
+![img](http://i.imgur.com/vAxP024.png)
