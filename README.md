@@ -181,3 +181,30 @@ World	2
 Hadoop provides a simple interface to track the status of MR jobs. To view it, you first need to get the VM ip using `ifconfig`. Then note the `inet addr` address. Finally, open `http://ip:50030/jobtracker.jsp` on your local machine. Alternatively, you can also open Firefox in the VM and browse to `http://localhost:50030/jobtracker.jsp` to view the jobs.
 
 ![img](http://i.imgur.com/vAxP024.png)
+
+
+### AWS EMR
+
+In this section, we'll see how we can use [AWS Elastic Mapreduce](https://aws.amazon.com/elasticmapreduce/) (EMR) to run our MapReduce job. To follow along, make sure you have a functioning AWS account. 
+
+AWS EMR reads and writes data to [AWS S3](https://aws.amazon.com/s3/) so the first step is to upload our application code and input to S3. Head over to the [console](https://console.aws.amazon.com/s3/home?region=us-east-1), create a new bucket (with a unique bucket name) and upload `python-example/mapper.py`, `python-example/reducer.py` and `input/aws.txt`. 
+
+We can now begin configuring our MR job. Head over to the [EMR console](https://console.aws.amazon.com/elasticmapreduce/home?region=us-east-1) and click on **Create Cluster**. See the screen below for the options to configure -
+
+![img](http://i.imgur.com/NAbeCpj.png)
+
+AWS will then go ahead and follow that up with the cluster creation screen - 
+
+![img](http://i.imgur.com/eF4pPVK.png)
+
+The next step is to add a MR step. Click on **Add Step** and fill in the details as shown below. Be sure to change these paths for your S3 bucket. 
+
+![img](http://i.imgur.com/AuXphLo.png)
+
+When done, the status of the cluster will change from *Waiting* to *Running*. After a few minutes, your job should be complete. This is indicated by the status of the cluster again going back to *Waiting*. You can now head over to the S3 bucket and see the output being generated.
+
+![img](http://i.imgur.com/U2XYgJr.png)
+
+And that's it! This is how your run MR jobs on AWS EMR!
+
+
