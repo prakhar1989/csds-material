@@ -8,7 +8,7 @@ This is a quick guide on getting your feet wet with Hadoop. It'll teach you how 
 The easiest way to try out Hadoop locally as a developer is by running a preconfigured-VM. 
 
 1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) for your Operating System.
-2. For the VM, we'll be using Cloudera's VM that they made available for Udacity. Unlike the official Cloudera Hadoop distribution (CHD) this is a more stripped down version (1.7 GB). Download the file from [here](http://content.udacity-data.com/courses/ud617/Cloudera-Udacity-Training-VM-4.1.1.c.zip) and unzip it.
+2. For the VM, we'll be using Cloudera's VM that they made available for Udacity. Unlike the official Cloudera Hadoop distribution (CHD) this is a more stripped down version (1.7 GB). Download the file from [here](http://content.udacity-data.com/courses/ud617/Cloudera-Udacity-Training-VM-4.1.1.c.zip) and unzip it. If you are on a Windows machine you will likely need to use WinRAR to open this .zip file because other methods fail to open the unzipped file (which exceeds the maximum specified 4GB for a .zip file).
 3. Open Virtualbox and click on "New".
 4. Give a name "Hadoop", Type as "Linux" and Version as "Ubuntu (64-bit)"
 5. Drag the slider to select a memory of 2048 MB
