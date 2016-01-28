@@ -22,14 +22,15 @@ The easiest way to try out Hadoop locally as a developer is by running a preconf
 
 #### Running Jobs
 
-Before we start running MapReduce jobs, we first need to get the code. Get started by cloning this repository.
+Before we start running MapReduce jobs, we first need to get the code. When the VM first starts, the terminal should already be open. Get started by cloning this repository.
 
 ```
 $ cd ~/Desktop
 $ git clone https://github.com/prakhar1989/csds-material
+$ cd csds-material
 ```
 
-Open the terminal in the VM so that you can start running commands. Linux and Mac users can also SSH into the machine by running `ssh training@ip-address` and entering the password - `training`. To get the IP address of the machine, just run `ifconfig` and taking note of the inet addr.
+Linux and Mac users can also SSH into the machine by running `ssh training@ip-address` and entering the password - `training`. To get the IP address of the machine, just run `ifconfig` and taking note of the inet addr.
 
 ![ip](http://i.imgur.com/VUMJkVy.png)
 
@@ -43,20 +44,9 @@ Hello Hadoop Goodbye Hadoop
 
 The job that we're going to run is the canonical wordcount example - it counts the number of words in a file (set of files).
 
-##### Java
-
-To run the java job, we'll first create a jar and then tell `hadoop` to run it.
-
+#### HDFS
+HDFS or Hadoop FileSystem is the filesystem where Hadoop expects the input files to be. When a job completes, HDFS is also where the final result will be placed by Hadoop. So the first thing we need to do, is to move our input files into HDFS. 
 ```
-$ cd java-example
-$ export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
-$ hadoop com.sun.tools.javac.Main WordCount.java
-$ jar cf wc.jar WordCount*.class
-```
-When this is done, we'll have a `wc.jar` in our directory which we'll use to run a MapReduce job. But before we run our jobs, we need to make sure that the input data is available in HDFS. Let's now copy the `input` directory from our local machine to a location called `/user/csds/`
-
-```
-$ cd ../
 $ hadoop fs -ls /user/
 drwxr-xr-x   - hue      supergroup          0 2013-09-05 20:08 /user/hive
 drwxr-xr-x   - hue      hue                 0 2013-09-10 10:37 /user/hue
@@ -69,10 +59,23 @@ Found 2 items
 -rw-r--r--   1 training supergroup         22 2016-01-25 23:06 /user/csds/input/file1
 -rw-r--r--   1 training supergroup         28 2016-01-25 23:06 /user/csds/input/file2
 ```
+
 Great! Now that we have our data residing in HDFS, lets run our mapreduce job!
+
+
+##### Java
+
+To run the java job, we'll first create a jar and then tell `hadoop` to run it.
 
 ```
 $ cd java-example
+$ export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+$ hadoop com.sun.tools.javac.Main WordCount.java
+$ jar cf wc.jar WordCount*.class
+```
+When this is done, we'll have a `wc.jar` in our directory which we'll use to run a MapReduce job. 
+
+```
 $ hadoop jar wc.jar WordCount /user/csds/input /user/csds/output
 16/01/25 23:09:47 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
 16/01/25 23:09:47 INFO input.FileInputFormat: Total input paths to process : 2
