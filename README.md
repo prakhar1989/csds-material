@@ -5,7 +5,7 @@ This is a quick guide on getting your feet wet with Hadoop. It'll teach you how 
 
 #### Getting Hadoop
 
-The easiest way to try out Hadoop locally as a developer is by running a preconfigured-VM. 
+The easiest way to try out Hadoop locally as a developer is by running a preconfigured-VM.
 
 1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) for your Operating System.
 2. For the VM, we'll be using Cloudera's VM that they made available for Udacity. Unlike the official Cloudera Hadoop distribution (CHD) this is a more stripped down version (1.7 GB). Download the file from [here](http://content.udacity-data.com/courses/ud617/Cloudera-Udacity-Training-VM-4.1.1.c.zip) and unzip it. If you are on a Windows machine you will likely need to use WinRAR to open this .zip file because other methods fail to open the unzipped file (which exceeds the maximum specified 4GB for a .zip file).
@@ -73,7 +73,7 @@ Great! Now that we have our data residing in HDFS, lets run our mapreduce job!
 
 ```
 $ cd java-example
-$ $ hadoop jar wc.jar WordCount /user/csds/input /user/csds/output
+$ hadoop jar wc.jar WordCount /user/csds/input /user/csds/output
 16/01/25 23:09:47 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
 16/01/25 23:09:47 INFO input.FileInputFormat: Total input paths to process : 2
 16/01/25 23:09:47 WARN snappy.LoadSnappy: Snappy native library is available
@@ -129,18 +129,18 @@ Found 3 items
 drwxr-xr-x   - training supergroup          0 2016-01-25 23:09 /user/csds/output/_logs
 -rw-r--r--   1 training supergroup         41 2016-01-25 23:09 /user/csds/output/part-r-00000
 
-$ hadoop fs -cat /user/csds/output/part-r-00000a
+$ hadoop fs -cat /user/csds/output/part-r-00000
 Bye	1
 Goodbye	1
 Hadoop	2
 Hello	2
 World	2
 ```
-Awesome! Our hadoop job ran correctly. 
+Awesome! Our hadoop job ran correctly.
 
 ##### Python
 
-Hadoop, by default, only supports Java for writing MR jobs. However, its [streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html) API allows us to provide any shell executable program to be the mapper and the reducer. The `python-example` folder has the corresponding code for `mapper` and `reducer`. 
+Hadoop, by default, only supports Java for writing MR jobs. However, its [streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html) API allows us to provide any shell executable program to be the mapper and the reducer. The `python-example` folder has the corresponding code for `mapper` and `reducer`.
 
 Since our `input` folder already exists in HDFS, we will need to create the folder again. Let's directly run the MR job
 
@@ -185,19 +185,19 @@ Hadoop provides a simple interface to track the status of MR jobs. To view it, y
 
 ### AWS EMR
 
-In this section, we'll see how we can use [AWS Elastic Mapreduce](https://aws.amazon.com/elasticmapreduce/) (EMR) to run our MapReduce job. To follow along, make sure you have a functioning AWS account. 
+In this section, we'll see how we can use [AWS Elastic Mapreduce](https://aws.amazon.com/elasticmapreduce/) (EMR) to run our MapReduce job. To follow along, make sure you have a functioning AWS account.
 
-AWS EMR reads and writes data to [AWS S3](https://aws.amazon.com/s3/) so the first step is to upload our application code and input to S3. Head over to the [console](https://console.aws.amazon.com/s3/home?region=us-east-1), create a new bucket (with a unique bucket name) and upload `python-example/mapper.py`, `python-example/reducer.py` and `aws_emr/aws.txt`. 
+AWS EMR reads and writes data to [AWS S3](https://aws.amazon.com/s3/) so the first step is to upload our application code and input to S3. Head over to the [console](https://console.aws.amazon.com/s3/home?region=us-east-1), create a new bucket (with a unique bucket name) and upload `python-example/mapper.py`, `python-example/reducer.py` and `aws_emr/aws.txt`.
 
 We can now begin configuring our MR job. Head over to the [EMR console](https://console.aws.amazon.com/elasticmapreduce/home?region=us-east-1) and click on **Create Cluster**. See the screen below for the options to configure -
 
 ![img](http://i.imgur.com/NAbeCpj.png)
 
-AWS will then go ahead and follow that up with the cluster creation screen - 
+AWS will then go ahead and follow that up with the cluster creation screen -
 
 ![img](http://i.imgur.com/eF4pPVK.png)
 
-The next step is to add a MR step. Click on **Add Step** and fill in the details as shown below. Be sure to change these paths for your S3 bucket. 
+The next step is to add a MR step. Click on **Add Step** and fill in the details as shown below. Be sure to change these paths for your S3 bucket.
 
 ![img](http://i.imgur.com/AuXphLo.png)
 
@@ -206,5 +206,3 @@ When done, the status of the cluster will change from *Waiting* to *Running*. Af
 ![img](http://i.imgur.com/U2XYgJr.png)
 
 And that's it! This is how your run MR jobs on AWS EMR!
-
-
