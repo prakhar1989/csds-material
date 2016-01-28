@@ -187,7 +187,7 @@ Hadoop provides a simple interface to track the status of MR jobs. To view it, y
 
 In this section, we'll see how we can use [AWS Elastic Mapreduce](https://aws.amazon.com/elasticmapreduce/) (EMR) to run our MapReduce job. To follow along, make sure you have a functioning AWS account. 
 
-AWS EMR reads and writes data to [AWS S3](https://aws.amazon.com/s3/) so the first step is to upload our application code and input to S3. Head over to the [console](https://console.aws.amazon.com/s3/home?region=us-east-1), create a new bucket (with a unique bucket name) and upload `python-example/mapper.py`, `python-example/reducer.py` and `input/aws.txt`. 
+AWS EMR reads and writes data to [AWS S3](https://aws.amazon.com/s3/) so the first step is to upload our application code and input to S3. Head over to the [console](https://console.aws.amazon.com/s3/home?region=us-east-1), create a new bucket (with a unique bucket name) and upload `python-example/mapper.py`, `python-example/reducer.py` and `aws_emr/aws.txt`. 
 
 We can now begin configuring our MR job. Head over to the [EMR console](https://console.aws.amazon.com/elasticmapreduce/home?region=us-east-1) and click on **Create Cluster**. See the screen below for the options to configure -
 
