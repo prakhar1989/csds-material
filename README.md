@@ -145,7 +145,7 @@ Awesome! Our hadoop job ran correctly.
 
 Hadoop, by default, only supports Java for writing MR jobs. However, its [streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html) API allows us to provide any shell executable program to be the mapper and the reducer. The `python-example` folder has the corresponding code for `mapper` and `reducer`.
 
-Since our `input` folder already exists in HDFS, we will need to create the folder again. Let's directly run the MR job
+Since our `input` folder already exists in HDFS, we will not need to create the folder again. Let's directly run the MR job
 
 ```
 $ cd python-example
