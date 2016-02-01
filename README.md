@@ -213,9 +213,9 @@ And that's it! This is how your run MR jobs on AWS EMR!
 Hive
 ====
 
-This section teaches you how to try out Hive on the VM. Hive data warehouse software facilitates querying and managing large datasets residing in distributed storage. Hive provides a mechanism to project structure onto this data and query the data using a SQL-like language called HiveQL. At the same time this language also allows traditional map/reduce programmers to plug in their custom mappers and reducers when it is inconvenient or inefficient to express this logic in HiveQL.
+This section teaches you how to try out [Hive](https://en.wikipedia.org/wiki/Apache_Hive) on the VM. The Hive data warehouse facilitates querying and managing large datasets residing in distributed storage. Hive provides a mechanism to project structure onto this data and query the data using a SQL-like language called HiveQL. At the same time this language also allows traditional map/reduce programmers to plug in their custom mappers and reducers when it is inconvenient or inefficient to express this logic in HiveQL.
 
-In this section, we'll see how to use Hive to query a dataset of Shopping Mall purchases. The dataset is located in the `hive/purchases.txt`. To get started, let's use the console to log into Hive -
+In this section, we'll see how to use Hive to query a dataset of Shopping Mall purchases. The dataset is located in the `hive/purchases.txt`. Hive is already installed and setup on your VM, so getting started is just a command away. Type the following in the terminal -
 
 ```
 $ hive
@@ -230,8 +230,7 @@ hive> SHOW TABLES;
 OK
 Time taken: 2.028 seconds
 ```
-
-Now let's go ahead and create a table. 
+Since no tables exist, we see a blank list. Now let's go ahead and create a table. 
 
 ```
 hive> CREATE TABLE test_tables;
@@ -251,7 +250,9 @@ OK
 Time taken: 0.161 seconds
 ```
 
-Press `Ctrl-D` to exit from the Hive console. So we created the `test_tables` above, but the first command failed because we didn't provide any schema. Now we know how to create a table in Hive, we'll create a table and add real data. But before we do that, let us inspect the data that we're going to put in. This will be required for coming up with a schema for our database.
+Press `Ctrl-D` to exit from the Hive console. So we created the `test_tables` above, but the first command failed because we didn't provide any schema. Every table that you wish to create must have a schema. In the subsequent command, we provide a dummy column name - `some_text` of the `STRING` type to make the command succeed. Once the table is created, `SHOW TABLES` correctly lists our table. However, since our table has no data, the `select` query returns a blank list.
+
+Now we know how to create a table in Hive, we'll create a table and add real data. But before we do that, let us inspect the data that we're going to put in. This will be required for coming up with a schema for our database.
 
 ```
 $ head purchases.txt
@@ -267,7 +268,9 @@ $ head purchases.txt
 2012-07-03 11:05:00,Virginia Beach,Women's Clothing,23.47,Cash
 ```
 
-Let's log into `hive` and add some data
+We can see above that our data has 5 columns, each separated by a comma. The first column is a timestamp indicating the time and date of the sale. The second column indicates the store location where the sale occured, followed by the category of the product. The last two columns indicate the price and the mode of payment associated with the sale respectively.
+
+Let's log into `hive` and load this data into HDFS. We'll start by first creating a new table.
 
 ```
 hive> CREATE TABLE purchases (
