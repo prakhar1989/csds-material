@@ -283,7 +283,7 @@ hive> CREATE TABLE purchases (
 OK
 Time taken: 0.177 seconds
 ```
-In the above command, we create a new table called `purchases` with the appropriate schema shown above. The `row format ...` command will be useful for loading data in Hive which we'll see shortly. The next step is to move our data into HDFS so that we can import it in Hive. Exit from hive and run the following command from the `csds-material` directory.
+In the above command, we create a new table called `purchases` with the appropriate schema shown above. The `row format ...` command tells Hive that we'll be loading in data from a [csv](https://en.wikipedia.org/wiki/Comma-separated_values) file eventually. The next step is to move our data into HDFS so that we can import it in Hive. Exit from hive and run the following command from the `csds-material` directory.
 
 ```
 $ hadoop fs -copyFromLocal hive/purchases.txt /user/csds/input
@@ -291,7 +291,7 @@ $ hadoop fs -ls /user/csds/input
 Found 1 items
 -rw-r--r--   1 training supergroup      53755 2016-02-01 04:29 /user/csds/input/purchases.txt
 ```
-Now we have everything in place to load data in Hive. Log back into the `hive` console
+Now we have everything in place to load data in Hive. Log back into the `hive` console and run the following -
 ```
 hive> LOAD DATA INPATH '/user/csds/input/purchases.txt' INTO TABLE purchases;
 Loading data to table default.purchases
@@ -349,12 +349,14 @@ Time taken: 9.002 seconds
 ```
 In this last query, we ran a simple query to calculate the total price of all the products that were paid in cash. We can see that our query got mapped to MapReduce tasks and got run by Hadoop. Finally at the end, we see the answer to our query - $55199 and also the total time taken.
 
-So this is how you can use Hive and the power of SQL to analyse your big data that is already stored on an HDFS cluster. For more practice, try running your own queries and see what you can uncover. If you're feeling adventurous, try answering the queries below -
+So this is how you can use Hive and the power of SQL to analyse your big data that is already stored on an HDFS cluster. For more practice, try running your own queries and see what you can uncover. If you're feeling adventurous, try to formuate the queries for answering the questions below -
 
 1. What is the average price of the products that were purchased via Mastercard?
 2. Which day recorded the highest sale?
 3. What is the minimum value of a product under the Computers category?
 4. How many distinct categories of products are there?
 5. Which store location had the lowest sale?
+
+If you need help with HiveQL, [this](https://docs.treasuredata.com/articles/hive) documentation should be useful.
 
 
