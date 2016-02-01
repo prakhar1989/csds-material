@@ -266,3 +266,92 @@ $ head purchases.txt
 2012-10-17 11:29:00,Baton Rouge,Computers,226.26,Cash
 2012-07-03 11:05:00,Virginia Beach,Women's Clothing,23.47,Cash
 ```
+
+Let's log into `hive` and add some data
+
+```
+hive> CREATE TABLE purchases (
+  `sales_date` TIMESTAMP,
+  `store_location` STRING,
+  `category` STRING,
+  `price` FLOAT,
+  `card` STRING 
+) row format delimited fields terminated by ',' stored as textfile;
+OK
+Time taken: 0.177 seconds
+```
+In the above command, we create a new table called `purchases` with the appropriate schema shown above. The `row format ...` command will be useful for loading data in Hive which we'll see shortly. The next step is to move our data into HDFS so that we can import it in Hive. Exit from hive and run the following command from the `csds-material` directory.
+
+```
+$ hadoop fs -copyFromLocal hive/purchases.txt /user/csds/input
+$ hadoop fs -ls /user/csds/input
+Found 1 items
+-rw-r--r--   1 training supergroup      53755 2016-02-01 04:29 /user/csds/input/purchases.txt
+```
+Now we have everything in place to load data in Hive. Log back into the `hive` console
+```
+hive> LOAD DATA INPATH '/user/csds/input/purchases.txt' INTO TABLE purchases;
+Loading data to table default.purchases
+OK
+Time taken: 2.436 seconds
+```
+Great our data is now loaded. Now let's explore the data 
+```
+hive> show tables;
+OK
+purchases
+test_tables
+Time taken: 0.133 seconds
+
+hive> select * from purchases limit 10;
+OK
+2012-07-20 09:59:00	Corpus Christi	CDs	327.91	Cash
+2012-03-11 17:29:00	Durham	Books	115.09	Discover
+2012-07-31 11:43:00	Rochester	Toys	332.07	MasterCard
+2012-06-18 14:47:00	Garland	Computers	31.99	Visa
+2012-03-27 11:40:00	Tulsa	CDs	452.18	Discover
+2012-05-31 10:57:00	Pittsburgh	Garden	492.25	Amex
+2012-08-22 14:35:00	Richmond	Consumer Electronics	346.0	Amex
+2012-09-23 16:45:00	Scottsdale	CDs	21.58	Cash
+2012-10-17 11:29:00	Baton Rouge	Computers	226.26	Cash
+2012-07-03 11:05:00	Virginia Beach	Women's Clothing	23.47	Cash
+Time taken: 0.155 seconds
+
+hive> select sum(price) from purchases where card = "Cash";
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapred.reduce.tasks=<number>
+Starting Job = job_201602010237_0001, Tracking URL = http://0.0.0.0:50030/jobdetails.jsp?jobid=job_201602010237_0001
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -Dmapred.job.tracker=0.0.0.0:8021 -kill job_201602010237_0001
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2016-02-01 04:36:15,505 Stage-1 map = 0%,  reduce = 0%
+2016-02-01 04:36:17,537 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.57 sec
+2016-02-01 04:36:18,558 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.57 sec
+2016-02-01 04:36:19,565 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.23 sec
+2016-02-01 04:36:20,582 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.23 sec
+MapReduce Total cumulative CPU time: 1 seconds 230 msec
+Ended Job = job_201602010237_0001
+MapReduce Jobs Launched:
+Job 0: Map: 1  Reduce: 1   Cumulative CPU: 1.23 sec   HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 230 msec
+OK
+55199.32992255688
+Time taken: 9.002 seconds
+```
+In this last query, we ran a simple query to calculate the total price of all the products that were paid in cash. We can see that our query got mapped to MapReduce tasks and got run by Hadoop. Finally at the end, we see the answer to our query - $55199 and also the total time taken.
+
+So this is how you can use Hive and the power of SQL to analyse your big data that is already stored on an HDFS cluster. For more practice, try running your own queries and see what you can uncover. If you're feeling adventurous, try answering the queries below -
+
+1. What is the average price of the products that were purchased via Mastercard?
+2. Which day recorded the highest sale?
+3. What is the minimum value of a product under the Computers category?
+4. How many distinct categories of products are there?
+5. Which store location had the lowest sale?
+
+
