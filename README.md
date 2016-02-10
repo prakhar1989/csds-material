@@ -352,10 +352,10 @@ In this last query, we ran a simple query to calculate the total price of all th
 So this is how you can use Hive and the power of SQL to analyse your big data that is already stored on an HDFS cluster. For more practice, try running your own queries and see what you can uncover. If you're feeling adventurous, try to formuate the queries for answering the questions below -
 
 1. What is the average price of the products that were purchased via Mastercard?
-2. Which day recorded the highest sale?
+2. Which date recorded the highest total sales?
 3. What is the minimum value of a product under the Computers category?
 4. How many distinct categories of products are there?
-5. Which store location had the lowest sale?
+5. Which store location had the lowest total sales?
 
 If you need help with HiveQL, [this](https://docs.treasuredata.com/articles/hive) documentation should be useful.
 
