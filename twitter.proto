@@ -1,0 +1,49 @@
+package lab1;
+
+
+message Tweet {
+  message Coord {
+    required float lat = 1;
+    required float lon = 2;
+  }
+  message Place {
+    required string url = 1;
+    required string country = 2;
+    required string country_code = 3;
+    required string place_type = 4;
+    repeated Coord bounding_box = 5;
+    required string id = 6;
+    required string name = 7;
+
+  }
+  message Delete {
+    required int32 uid = 1;
+    required int64 id = 2;
+  }
+  message Insert {
+    required bool truncated  = 1;
+    optional string text = 2;
+    optional int64 reply_to = 3;
+    optional string reply_to_name = 4;
+    required int64 id = 5;
+    required int64 uid = 6;
+    optional int32 favorite_count = 7;
+    optional string source = 8;
+    required bool retweeted = 9;
+    optional bool possibly_sensitive = 10;
+    optional string lang = 11;
+    required string created_at = 12;
+    optional Coord coord = 13;
+    required string filter_level = 14;
+    optional Place place = 15;
+  }
+
+  required bool is_delete = 1;
+  optional Delete delete = 2;
+  optional Insert insert = 3;
+}
+
+message Tweets {
+  repeated Tweet tweets = 1;
+}
+
