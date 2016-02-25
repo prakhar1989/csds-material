@@ -1,8 +1,8 @@
-# Lab 2
+# Data Lab
 
-*Assigned: September 10, 2013*
+*Assigned: *
 
-*Due: September 17, 2013, 12:59 PM (just before class)*
+*Due: , 2016, 12:59 PM (just before class)*
 
 The goal of this lab is for you to experiment with working with data
 in various degrees of structure.
@@ -11,17 +11,31 @@ You will work with a dataset of Tweets encoded in multiple ways to compute
 some summary information and reflect on the pros and cons of each
 approach.
 
-To start, go to the AWS console and start your EC2 instance.  SSH into it.
-First, you need to check out/update the files for lab2:
+### Setup
 
-    cd asciiclass/labs/
-    git pull
+To setup the tools required for this lab, you'll be running a preconfigured VM that has been made especially for this lab.
+Start by installing [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads). If you've done the Hadoop homeworks, you should already have Virtualbox installed.
 
-Then :
+Once Vagrant is installed, check your installation by running `vagrant -v` on the command line. 
+```
+$ vagrant -v
+Vagrant 1.7.4
+```
+The next step is to clone this repository on your computer.
+```
+$ git clone -b ewu-csds https://github.com/prakhar1989/csds-material 
+```
+Now that we have everything, we can start the VM.
 
-    cd lab2
+```
+$ cd csds-material
+$ vagrant up
+```
+You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the vagrant commands to work.
 
-# Step 1: Look at some JSON-encoded Tweets
+Once you are done with using the VM, you can run `vagrant halt` to turn it off.
+
+### Step 1: Look at some JSON-encoded Tweets
 
 First decompress the Tweets data file:
 
@@ -45,7 +59,7 @@ following four questions:
 1. Find the five uids that have tweeted the most.
 1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from).
 
-# Step 2: Analyses using Protocol Buffers
+### Step 2: Analyses using Protocol Buffers
 
 In this step, you will use protocol buffers to perform the analyses.
 
@@ -82,7 +96,7 @@ you can use, as well as [other language implementations in the
 third-party
 listings](https://code.google.com/p/protobuf/wiki/ThirdPartyAddOns).*
 
-# Step 3: Analyses on database records
+### Step 3: Analyses on database records
 
 In this step, you will be working with the twitter data encoded as a
 sqlite3 database file.  The file, `twitter.db` was generated using
@@ -101,7 +115,7 @@ and [postgresql's documentation](http://www.postgresql.org/docs/).
 *Perform the four analyses listed in Step 1 using sqlite.  Keep a copy
  of your code and the answers.*
 
-# Step 4: Analyses in MongoDB
+### Step 4: Analyses in MongoDB
 
 In this step, we will import and query the JSON data we've collected
 in MongoDB.  First, let's get the data into Mongo:
@@ -120,7 +134,7 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 *Perform the four analyses listed in Step 1 using MongoDB.  Keep a
  copy of your code and the answers.*
 
-# Step 5: Reflection
+### Step 5: Reflection
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
 1. Describe one question that would be easier to answer with protocol buffers than via a SQL query.
@@ -134,7 +148,7 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 
 
 
-# Handing in your work
+### Handing in your work
 
 You should create a text file with your name, the results of the four
 analyses from Step 1 as run on the three systems in Steps 2, 3, and 4,
