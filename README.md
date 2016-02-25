@@ -55,7 +55,7 @@ MongoDB.  Using each of the three systems, you're going to answer the
 following four questions:
 
 1. Find the number of deleted messages in the dataset.
-1. Find the number of tweets that are replies to another tweet in this dataset.
+1. Find the number of tweets that are replies to another tweet.
 1. Find the five uids that have tweeted the most.
 1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from).
 
