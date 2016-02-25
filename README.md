@@ -33,7 +33,7 @@ $ vagrant up
 ```
 You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the vagrant commands to work.
 
-Once you are done with using the VM, you can run `vagrant halt` to turn it off.
+Once you are done with using the VM, disconnect from the VM, and then run `vagrant halt` to turn it off.
 
 ### Step 1: Look at some JSON-encoded Tweets
 
