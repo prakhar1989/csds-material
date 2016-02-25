@@ -33,7 +33,7 @@ $ vagrant up
 ```
 You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the vagrant commands to work.
 
-Once you are done with using the VM, you can run `vagrant halt` to turn it off.
+Once you are done with using the VM, disconnect from the VM, and then run `vagrant halt` to turn it off.
 
 ### Step 1: Look at some JSON-encoded Tweets
 
@@ -55,7 +55,7 @@ MongoDB.  Using each of the three systems, you're going to answer the
 following four questions:
 
 1. Find the number of deleted messages in the dataset.
-1. Find the number of tweets that are replies to another tweet in this dataset.
+1. Find the number of tweets that are replies to another tweet.
 1. Find the five uids that have tweeted the most.
 1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from).
 
