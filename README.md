@@ -134,7 +134,11 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 *Perform the four analyses listed in Step 1 using MongoDB.  Keep a
  copy of your code and the answers.*
 
-Note: You can use any programming language of your choice to interact with MongoDB or simply run queries from within the Mongo CLI. Please do not load the entire database in memory and then find the solution. Marks will not be given for that. It is required of you to directly query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the final result.
+Note: 
+
+1. You can use any programming language of your choice to interact with MongoDB or simply run queries from within the Mongo CLI. 
+2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. Marks will not be given for that. 
+3. It is required of you to query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the complete solution.
 
 ### Step 5: Reflection
 
