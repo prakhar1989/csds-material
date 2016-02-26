@@ -134,6 +134,8 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 *Perform the four analyses listed in Step 1 using MongoDB.  Keep a
  copy of your code and the answers.*
 
+Note: You can use any programming language of your choice to interact with MongoDB or simply run queries from within the Mongo CLI. Please do not load the entire database in memory and then find the solution. Marks will not be given for that. It is required of you to directly query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the final result.
+
 ### Step 5: Reflection
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
