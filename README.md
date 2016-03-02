@@ -25,15 +25,40 @@ The next step is to clone this repository on your computer.
 ```
 $ git clone -b ewu-csds https://github.com/prakhar1989/csds-material 
 ```
+
+**Starting the VM**
+
 Now that we have everything, we can start the VM.
 
 ```
 $ cd csds-material
 $ vagrant up
 ```
-You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the vagrant commands to work.
+You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the Vagrant commands to work.
 
-Once you are done with using the VM, disconnect from the VM, and then run `vagrant halt` to turn it off.
+```
+$ vagrant ssh
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
+
+vagrant@precise64:~$  cd /vagrant
+
+vagrant@precise64:/vagrant$ ls
+createdb.py  encode.py  README.md  twitter.db  twitter.ddl  twitter.json.gz  twitter.pb  twitter_pb2.py  twitter_pb2.pyc  twitter.proto  Vagrantfile
+```
+Now that you're into the VM, the way to access the data that's on your host machine is via the `/vagrant` folder. By default, Vagrant will automatically enable sharing of the `/vagrant` folder between the guest and the host. `CD`ing into the `/vagrant` folder will show all your files.
+
+You can now get started on working through the assignment.
+
+**Stopping the VM** 
+
+Once you are done with using the VM, disconnect from the VM (by hitting `Ctrl+D`), and then run `vagrant halt` to turn it off. Later when you want to resume work, just run `vagrant up` to start the VM from the directory that has the `Vagrantfile`.
 
 ### Step 1: Look at some JSON-encoded Tweets
 
@@ -131,13 +156,12 @@ To access the `lab2` database, type
 
 Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) for help.
 
-*Perform the four analyses listed in Step 1 using MongoDB.  Keep a
- copy of your code and the answers.*
+*Perform the four analyses listed in Step 1 using MongoDB. Keep a copy of your code and the answers.*
 
-Note: 
+**Note:** 
 
 1. You can use any programming language of your choice to interact with MongoDB or simply run queries from within the Mongo CLI. 
-2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. Marks will not be given for that. 
+2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. In other words, your Mongo query should be responsible for filtering / aggregating the data rather than your programming language. 
 3. It is required of you to query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the complete solution.
 
 ### Step 5: Reflection
@@ -151,28 +175,13 @@ Note:
 1. What other metrics (e.g., time to implement, code redundancy, etc.) can we use to compare these different approaches?  Which system is better by those measures?
 1. How long did this lab take you?  We want to make sure to target future labs to not take too much of your time.
 
-
-
-
 ### Handing in your work
 
-You should create a text file with your name, the results of the four
-analyses from Step 1 as run on the three systems in Steps 2, 3, and 4,
-and brief responses to the reflection questions in Step 5.  Where
-possible, show the query you used (describe it at a high level if the
-code/query takes up more than a few lines).  Upload your writeup to
-the [course Stellar
-site](http://stellar.mit.edu/S/course/6/fa13/6.885/) as the "lab2"
-assignment.
-
-
+You should create a PDF file with your name, the results of the four analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, and brief responses to the reflection questions in Step 5.  Additionally, create a folder that has all the code that **you've** written. Please don't upload the same files that we've provided for this assignment. Lastly, create a zip containing the PDF and the code folder before submitting it on Courseworks.
 
 ### Feedback (optional, but valuable)
 
-If you have any comments about this lab, or any thoughts about the
-class so far, we would greatly appreciate them.  Your comments will
-be strictly used to improve the rest of the labs and classes and have
-no impact on your grade. 
+If you have any comments about this lab, or any thoughts about the class so far, we would greatly appreciate them.  Your comments will be strictly used to improve the rest of the labs and classes and have no impact on your grade. 
 
 Some questions that would be helpful:
 
