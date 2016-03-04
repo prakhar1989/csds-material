@@ -164,7 +164,17 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. In other words, your Mongo query should be responsible for filtering / aggregating the data rather than your programming language. 
 3. It is required of you to query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the complete solution.
 
-### Step 5: Reflection
+## Step 5: Creating schema and writing join queries (Bonus)
+
+In this step, you will be creating a new schema for a dataset. 
+
+Use WeatherDataset.csv file to create your own schema and add it to existing database. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter databaset both have attritute country_code which can be used to get the desired result). Complete the above task as follows: -
+
+1. Write a python script using Protocol buffers 
+2. Use Sqlite by importing into Twitter database 
+
+
+### Step 6: Reflection
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
 1. Describe one question that would be easier to answer with protocol buffers than via a SQL query.
