@@ -171,13 +171,13 @@ This is an optional task that will fetch you bonus points if completed successfu
 Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
 
 1. Write a python script using the twitter protocol buffer data and the weather csv file
-2. Now, complete the same task using sqlite: -
+2. Now, use sqlite for the above task: -
 
 ```
 		$ sqlite3 twitter.db
-		sqlite> * write create table statement using WeatherDataset.csv file * (Refer twitter.ddl file to learn how to design schema) 
+		sqlite> <write create table statement using WeatherDataset.csv file> (Refer twitter.ddl file to learn how to design schema) 
 		sqlite> .mode csv
-		sqlite> .import WeatherDataset.csv
+		sqlite> .import WeatherDataset.csv <table name> (type ".help" for commands and help)
 		sqlite> <write sql query to complete the required task>
 ```
 
