@@ -172,11 +172,14 @@ Use WeatherDataset.csv file to create your own schema and add it to existing dat
 
 1. Write a python script using the twitter protocol buffer data and the weather csv file
 2. Now, complete the same task using sqlite: -
-		a. sqlite3 twitter.db
-		b. < write create table statement using WeatherDataset.csv file > (Refer twitter.ddl file to learn how to design schema) 
-		c. .mode csv
-		d. .import WeatherDataset.csv
-		e. <write sql query to complete the required task>
+
+```
+		$ sqlite3 twitter.db
+		sqlite> * write create table statement using WeatherDataset.csv file * (Refer twitter.ddl file to learn how to design schema) 
+		sqlite> .mode csv
+		sqlite> .import WeatherDataset.csv
+		sqlite> <write sql query to complete the required task>
+```
 
 
 ### Step 6: Reflection
