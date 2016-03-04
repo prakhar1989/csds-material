@@ -166,12 +166,17 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 
 ## Step 5: Creating schema and writing join queries (Bonus)
 
-In this step, you will be creating a new schema for a dataset. 
+This is an optional task that will fetch you bonus points if completed succesfully. In this step, you will be creating a new schema for a dataset. 
 
-Use WeatherDataset.csv file to create your own schema and add it to existing database. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter databaset both have attritute country_code which can be used to get the desired result). Complete the above task as follows: -
+Use WeatherDataset.csv file to create your own schema and add it to existing database. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
 
-1. Write a python script using Protocol buffers 
-2. Use Sqlite by importing into Twitter database 
+1. Write a python script using the twitter protocol buffer data and the weather csv file
+2. Now, complete the same task using sqlite.
+		a. sqlite3 twitter.db
+		b. < write create table statement using WeatherDataset.csv file > (Refer twitter.ddl file to learn how to design schema) 
+		c. .mode csv
+		d. .import WeatherDataset.csv
+		e. <write sql query to complete the required task>
 
 
 ### Step 6: Reflection
