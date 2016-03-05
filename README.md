@@ -2,7 +2,7 @@
 
 *Assigned: *
 
-*Due: , 2016, 12:59 PM (just before class)*
+*Due: Weds March 9th, 5PM EST*
 
 The goal of this lab is for you to experiment with working with data
 in various degrees of structure.
@@ -11,54 +11,12 @@ You will work with a dataset of Tweets encoded in multiple ways to compute
 some summary information and reflect on the pros and cons of each
 approach.
 
-### Setup
+This is a two part lab.  There are different due dates for each part.
 
-To setup the tools required for this lab, you'll be running a preconfigured VM that has been made especially for this lab.
-Start by installing [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads). If you've done the Hadoop homeworks, you should already have Virtualbox installed.
+# Setup
 
-Once Vagrant is installed, check your installation by running `vagrant -v` on the command line. 
-```
-$ vagrant -v
-Vagrant 1.7.4
-```
-The next step is to clone this repository on your computer.
-```
-$ git clone -b ewu-csds https://github.com/prakhar1989/csds-material 
-```
+See the [setup instructions](./SETUP.md)
 
-**Starting the VM**
-
-Now that we have everything, we can start the VM.
-
-```
-$ cd csds-material
-$ vagrant up
-```
-You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the Vagrant commands to work.
-
-```
-$ vagrant ssh
-Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-New release '14.04.4 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-Welcome to your Vagrant-built virtual machine.
-Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
-
-vagrant@precise64:~$  cd /vagrant
-
-vagrant@precise64:/vagrant$ ls
-createdb.py  encode.py  README.md  twitter.db  twitter.ddl  twitter.json.gz  twitter.pb  twitter_pb2.py  twitter_pb2.pyc  twitter.proto  Vagrantfile
-```
-Now that you're into the VM, the way to access the data that's on your host machine is via the `/vagrant` folder. By default, Vagrant will automatically enable sharing of the `/vagrant` folder between the guest and the host. `CD`ing into the `/vagrant` folder will show all your files.
-
-You can now get started on working through the assignment.
-
-**Stopping the VM** 
-
-Once you are done with using the VM, disconnect from the VM (by hitting `Ctrl+D`), and then run `vagrant halt` to turn it off. Later when you want to resume work, just run `vagrant up` to start the VM from the directory that has the `Vagrantfile`.
 
 ### Step 1: Look at some JSON-encoded Tweets
 
@@ -82,7 +40,7 @@ following four questions:
 1. Find the number of deleted messages in the dataset.
 1. Find the number of tweets that are replies to another tweet.
 1. Find the five user IDs (field name: `uid`) that have tweeted the most.
-1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from).
+<!--1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from.  If it doesn't you can ignore the tweet).-->
 
 ### Step 2: Analyses using Protocol Buffers
 
@@ -121,6 +79,7 @@ you can use, as well as [other language implementations in the
 third-party
 listings](https://code.google.com/p/protobuf/wiki/ThirdPartyAddOns).*
 
+
 ### Step 3: Analyses on database records
 
 In this step, you will be working with the twitter data encoded as a
@@ -139,6 +98,9 @@ and [postgresql's documentation](http://www.postgresql.org/docs/).
 
 *Perform the four analyses listed in Step 1 using sqlite.  Keep a copy
  of your code and the answers.*
+
+
+
 
 ### Step 4: Analyses in MongoDB
 
@@ -161,12 +123,13 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 **Note:** 
 
 1. You can use any programming language of your choice to interact with MongoDB or simply run queries from within the Mongo CLI. 
-2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. In other words, your Mongo query should be responsible for filtering / aggregating the data rather than your programming language. 
-3. It is required of you to query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the complete solution.
+2. We want you to write MongoDB queries, so any solutions that load all of the data into a programming language and performs processing similar to Step 2 is not accepted
+  2. If you are not using the Mongo CLI, then you should not call the entire collection, like doing docs = "SELECT * FROM table", and then perform filtering on docs to get the solution. In other words, your Mongo query should be responsible for filtering / aggregating the data rather than your programming language. 
+  3. It is required of you to query the database that extracts the complete solution or atleast a partial solution followed by some processing to eventually get the complete solution.
 
-## Step 5: Creating schema and writing join queries (Bonus)
+### Step 5: Using a New Dataset (Optional)
 
-This is an optional task that will fetch you bonus points if completed successfully. In this step, you will learn how to design schema given a dataset and execute join queries.  
+This is an optional task. In this step, you will learn how to design schema given a dataset and execute join queries.  
 
 Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
 
@@ -182,7 +145,11 @@ Use WeatherDataset.csv file to create your own schema and add it to existing dat
 ```
 
 
-### Step 6: Reflection
+# Submission
+
+### Reflection Questions
+
+ONe or two sentences answers are sufficient
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
 1. Describe one question that would be easier to answer with protocol buffers than via a SQL query.
@@ -195,7 +162,13 @@ Use WeatherDataset.csv file to create your own schema and add it to existing dat
 
 ### Handing in your work
 
-You should create a PDF file with your name, the results of the four analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, and brief responses to the reflection questions in Step 5.  Additionally, create a folder that has all the code that **you've** written. Please don't upload the same files that we've provided for this assignment. Lastly, create a zip containing the PDF and the code folder before submitting it on Courseworks.
+1. Create a PDF file containing: 
+  * your name 
+  * the results of the four analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, 
+  * the brief responses to the reflection questions 
+2. Create a folder that has all the code that **you've** written. Please don't upload the same files that we've provided for this assignment.
+3. Create a zip containing the PDF and the code folder 
+4. Submit on Courseworks.
 
 ### Feedback (optional, but valuable)
 
