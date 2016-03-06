@@ -1,6 +1,6 @@
 # Data Lab
 
-*Assigned: *
+*Assigned: Saturday March 5th*
 
 *Due: Friday March 11th, 11:59PM EST*
 
@@ -36,12 +36,13 @@ By reading `twitter.json`, you've completed Step 1!
 In the following steps, you will use three systems to perform data
 analysis: Protocol Buffers, a relational database called SQLite, and
 MongoDB.  Using each of the three systems, you're going to answer the
-following four questions:
+following three questions:
 
 1. Find the number of deleted messages in the dataset.
-1. Find the number of tweets that are replies to another tweet.
-1. Find the five user IDs (field name: `uid`) that have tweeted the most.
-<!--1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from.  If it doesn't you can ignore the tweet).-->
+2. Find the number of tweets that are replies to another tweet.
+3. Find the five user IDs (field name: `uid`) that have tweeted the most.
+
+<!-- 4. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from.  If it doesn't you can ignore the tweet).) -->
 
 ### Step 2: Analyses using Protocol Buffers
 
