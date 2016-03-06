@@ -2,16 +2,17 @@
 
 *Assigned: *
 
-*Due: Weds March 9th, 5PM EST*
+*Due: Friday March 11th, 11:59PM EST*
 
 The goal of this lab is for you to experiment with working with data
-in various degrees of structure.
+in various degrees of structure.  
 
 You will work with a dataset of Tweets encoded in multiple ways to compute
 some summary information and reflect on the pros and cons of each
 approach.
 
-This is a two part lab.  There are different due dates for each part.
+**We will discuss learning from this lab in lecture on Wednesday March 9th, so
+it will be most benefital if attempted before lecture that day**
 
 # Setup
 
