@@ -6,7 +6,7 @@ In the previous assignment you worked with the Hadoop, HDFS and Hive environment
 
 This assignment can be performed on the same cloudera virtual machine that was used for the previous assignment. No further setup or installation will be needed. Although we recommend Python, you are free to use any language of your choice for this assignment.
 
-##About the Dataset (editing of technical details might be needed)
+### DataSet - Nasa Server Logs
 
 **File Name** - server-logz.gz (300 Mb)
 
@@ -30,7 +30,7 @@ The logs follow the standard [Apache log](https://httpd.apache.org/docs/2.4/logs
 
 Download and uncompress the dataset from [Google Drive](https://drive.google.com/open?id=0B6qnKGQsJnFfWG02N2loUVluck0). Go through the dataset to get a good idea of all the data and fields present. 
 
-##Part a : Hive (50 points)
+#### Part a : Hive (50 points)
 
 1. Create a schema for the dataset in Hive. You will have to create a concrete structure describing all the required fields. (15)
 
@@ -42,7 +42,7 @@ Download and uncompress the dataset from [Google Drive](https://drive.google.com
 
 5. Make a simple plot (e.g a histogram) depicting the number of requests made in a day for every day in the month of October. You are free to choose any visualization tool for this part. (20)
 
-##Part b : MapReduce (50 points)
+#### Part b : MapReduce (50 points)
 
 To solve each of the tasks below, you would need to write your own mapper and reducer.
 
