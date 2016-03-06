@@ -1,6 +1,6 @@
 # Data Lab
 
-*Assigned: *
+*Assigned: Saturday March 5th*
 
 *Due: Friday March 11th, 11:59PM EST*
 
@@ -39,12 +39,13 @@ By reading `twitter.json`, you've completed Step 1!
 In the following steps, you will use three systems to perform data
 analysis: Protocol Buffers, a relational database called SQLite, and
 MongoDB.  Using each of the three systems, you're going to answer the
-following four questions:
+following three questions:
 
 1. Find the number of deleted messages in the dataset.
-1. Find the number of tweets that are replies to another tweet.
-1. Find the five user IDs (field name: `uid`) that have tweeted the most.
-<!--1. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from.  If it doesn't you can ignore the tweet).-->
+2. Find the number of tweets that are replies to another tweet.
+3. Find the five user IDs (field name: `uid`) that have tweeted the most.
+
+<!-- 4. Find the names of the top five places by number of tweets.  (Tweets may have a "place" attribute that describes where the tweet is from.  If it doesn't you can ignore the tweet).) -->
 
 ### Step 2: Analyses using Protocol Buffers
 
@@ -74,7 +75,7 @@ not need to re-create the file.  Note that this script does not
 include all fields: we serialized only the subset of fields that are
 necessary for answering the questions.
 
-*Perform the four analyses from Step 1 using protocol buffers.  Keep a
+*Perform the three analyses from Step 1 using protocol buffers.  Keep a
 copy of your code and the answers. You will have to write some code to
 process the protocol buffer-encoded data.  There are [official
 C++/Java/Python
@@ -100,7 +101,7 @@ Start a sqlite3 prompt by typing:
 For SQL help, refer to the fantastic [sqlite documentation](http://www.sqlite.org/docs.html)
 and [postgresql's documentation](http://www.postgresql.org/docs/).
 
-*Perform the four analyses listed in Step 1 using sqlite.  Keep a copy
+*Perform the three analyses listed in Step 1 using sqlite.  Keep a copy
  of your code and the answers.*
 
 
@@ -122,7 +123,7 @@ To access the `lab2` database, type
 
 Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) for help.
 
-*Perform the four analyses listed in Step 1 using MongoDB. Keep a copy of your code and the answers.*
+*Perform the three analyses listed in Step 1 using MongoDB. Keep a copy of your code and the answers.*
 
 **Note:** 
 
@@ -135,7 +136,7 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 
 This is an optional task. In this step, you will learn how to design schema given a dataset and execute join queries.  
 
-Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
+Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches all (tweets, temperature) pairs originating in the 'US' when weather condition was 'Clear' in the year 2013 (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
 
 1. Write a python script using the twitter protocol buffer data and the weather csv file
 2. Now, use sqlite for the above task: -
@@ -149,11 +150,12 @@ Use WeatherDataset.csv file to create your own schema and add it to existing dat
 ```
 
 
+
 # Submission
 
 ### Reflection Questions
 
-ONe or two sentences answers are sufficient
+One or two sentences answers are sufficient
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
 1. Describe one question that would be easier to answer with protocol buffers than via a SQL query.
@@ -168,7 +170,7 @@ ONe or two sentences answers are sufficient
 
 1. Create a PDF file containing: 
   * your name 
-  * the results of the four analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, 
+  * the results of the three analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, 
   * the brief responses to the reflection questions 
 2. Create a folder that has all the code that **you've** written. Please don't upload the same files that we've provided for this assignment.
 3. Create a zip containing the PDF and the code folder 
