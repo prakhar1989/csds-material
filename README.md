@@ -72,7 +72,7 @@ not need to re-create the file.  Note that this script does not
 include all fields: we serialized only the subset of fields that are
 necessary for answering the questions.
 
-*Perform the four analyses from Step 1 using protocol buffers.  Keep a
+*Perform the three analyses from Step 1 using protocol buffers.  Keep a
 copy of your code and the answers. You will have to write some code to
 process the protocol buffer-encoded data.  There are [official
 C++/Java/Python
@@ -98,7 +98,7 @@ Start a sqlite3 prompt by typing:
 For SQL help, refer to the fantastic [sqlite documentation](http://www.sqlite.org/docs.html)
 and [postgresql's documentation](http://www.postgresql.org/docs/).
 
-*Perform the four analyses listed in Step 1 using sqlite.  Keep a copy
+*Perform the three analyses listed in Step 1 using sqlite.  Keep a copy
  of your code and the answers.*
 
 
@@ -120,7 +120,7 @@ To access the `lab2` database, type
 
 Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) for help.
 
-*Perform the four analyses listed in Step 1 using MongoDB. Keep a copy of your code and the answers.*
+*Perform the three analyses listed in Step 1 using MongoDB. Keep a copy of your code and the answers.*
 
 **Note:** 
 
@@ -166,7 +166,7 @@ ONe or two sentences answers are sufficient
 
 1. Create a PDF file containing: 
   * your name 
-  * the results of the four analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, 
+  * the results of the three analyses from Step 1 as run on the three systems in Steps 2, 3, and 4, 
   * the brief responses to the reflection questions 
 2. Create a folder that has all the code that **you've** written. Please don't upload the same files that we've provided for this assignment.
 3. Create a zip containing the PDF and the code folder 
