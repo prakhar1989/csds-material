@@ -56,6 +56,8 @@ To solve each of the tasks below, you would need to write your own mapper and re
 
 2. Find the total bandwidth that was sent by the Nasa webserver in the month of July 1995. (25)
 
+ To calculate total bandwidth add all the response bytes sent by NASA webserver. NASA webservers have domain name ending with  nasa.gov.  Write a MapReduce job that will calculate total bandwidth and print it on STDOUT.
+
 ##Submission Instructions:
 
 - Create a folder with the source code for both parts and the outputs (screenshots or text file).
