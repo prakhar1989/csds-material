@@ -133,7 +133,7 @@ Refer to Mongo's detailed [query language documentation](http://docs.mongodb.org
 
 This is an optional task. In this step, you will learn how to design schema given a dataset and execute join queries.  
 
-Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
+Use WeatherDataset.csv file to create your own schema and add it to existing database as described below. You have to write a query that fetches number/count of tweets originating in the 'US' when weather condition was 'Clear' in the year 2013 (weather and twitter dataset both have attribute "country_code" which can be used to get the desired result). Complete the above task as follows: -
 
 1. Write a python script using the twitter protocol buffer data and the weather csv file
 2. Now, use sqlite for the above task: -
@@ -147,11 +147,12 @@ Use WeatherDataset.csv file to create your own schema and add it to existing dat
 ```
 
 
+
 # Submission
 
 ### Reflection Questions
 
-ONe or two sentences answers are sufficient
+One or two sentences answers are sufficient
 
 1. Read the schema and protocol buffer definition files.  What are the main differences between the two?  Are there any similarities?
 1. Describe one question that would be easier to answer with protocol buffers than via a SQL query.
