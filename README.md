@@ -8,7 +8,7 @@ This assignment can be performed on the same cloudera virtual machine that was u
 
 ### DataSet - Nasa Server Logs
 
-**File Name** - server-logz.gz (300 Mb)
+**File Name** - server-logs.gz
 
 **Size** - The total size of the dataset is roughly 1GB after uncompressing the .gz file. 
 
