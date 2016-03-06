@@ -1,9 +1,9 @@
 These are setup instructions for the [data structuring lab](./README.md)
 
+You can either setup a local virtual machine, or run a virtual machine in Amazon EC2.
 
-### Setup
+### Option 1: Local setup
 
-To setup the tools required for this lab, you'll be running a preconfigured VM that has been made especially for this lab.
 Start by installing [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads). If you've done the Hadoop homeworks, you should already have Virtualbox installed.
 
 Once Vagrant is installed, check your installation by running `vagrant -v` on the command line. 
@@ -50,4 +50,41 @@ You can now get started on working through the assignment.
 
 Once you are done with using the VM, disconnect from the VM (by hitting `Ctrl+D`), and then run `vagrant halt` to turn it off. Later when you want to resume work, just run `vagrant up` to start the VM from the directory that has the `Vagrantfile`.
 
+### Option 2: EC2 setup
 
+By using EC2 you can avoid potential local issues with vagrant and VirtualBox (like having to enable virtualization in the Windows BIOS or version mismatch errors). By using a small instance type, you can do this HW in the AWS cloud for free.
+
+**Launch an EC2 instance**
+
+In the AWS console, choose EC2. Click the "Launch Instance" button. In the Quick Start tab there will be an Ubutu image (Ubuntu Server 14.04 LTS (HVM), SSD Volume Type) that is labeled as "Free tier eligible". Select this instance type. Proceed to create the instance with all the other default options.
+
+When click the "Launch" button, you will be given the create a new key pair and name it hw3. Download the key file to somewhere convenient on your machine.
+
+**Connecting to the instance**
+
+In a shell with an ssh client (the terminal works fine on a Mac), `cd` to the directory where the `.pem` file is saved. Run these commands to ssh to your EC2 instance:
+
+```
+$ chmod 400 hw3.pem
+$ ssh -i "hw3.pem" YOUR_PUBLIC_DNS 
+```
+Your public DNS should look something like `ubuntu@ec2-11-111-11-11.us-west-2.compute.amazonaws.com`. AWS tells you this name when you create the instance, and you can subsequently find it in the Instances tab after selecting EC2 in the AWS console.
+
+**Setting up tools on your instance**
+
+From within your EC2 instance, run these commands to install the tools needed to complete the lab:
+
+```
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+$ echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+$ sudo apt-get update
+$ sudo apt-get -yqq install python-pip python-dev protobuf-compiler sqlite3 mongodb-org
+$ sudo pip install protobuf sqlalchemy
+$ sudo apt-get install git
+$ git clone -b ewu-csds https://github.com/prakhar1989/csds-material
+$ cd csds-material
+```
+
+**Shutting down the instance**
+
+While there is no financial cost for leaving the instance running indefinitely, you'll probably want to shut it down when you're done. To terminate the instance, select EC2 in the AWS console, select the Instances tab, expand the Actions dropdown, and select Instance State > Terminate. (This cannot be undone!)
