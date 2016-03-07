@@ -66,9 +66,9 @@ In a shell with an ssh client (the terminal works fine on a Mac), `cd` to the di
 
 ```
 $ chmod 400 hw3.pem
-$ ssh -i "hw3.pem" YOUR_PUBLIC_DNS 
+$ ssh -i "hw3.pem" ubuntu@YOUR_PUBLIC_DNS 
 ```
-Your public DNS should look something like `ubuntu@ec2-11-111-11-11.us-west-2.compute.amazonaws.com`. AWS tells you this name when you create the instance, and you can subsequently find it in the Instances tab after selecting EC2 in the AWS console.
+Your public DNS should look something like `ec2-11-111-11-11.us-west-2.compute.amazonaws.com`. AWS tells you this name when you create the instance, and you can subsequently find it in the Instances tab after selecting EC2 in the AWS console.
 
 **Setting up tools on your instance**
 
