@@ -24,7 +24,7 @@ Now that we have everything, we can start the VM.
 $ cd csds-material
 $ vagrant up
 ```
-You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh`. Remember, always `cd` into the directory containing the `Vagrantfile` for the Vagrant commands to work.
+You will see a stream of text run by on you on your screen. Vagrant will download the VM and install the required packages. If everything works as expected, you should now be able to `ssh` into your VM using `vagrant ssh` (Windows users will need to install a ssh client, e.g. Putty, to ssh into the VM. `vagrant ssh` command will provide you all the details, e.g. the IP, Port, Private key location etc. that you will have to manually enter in Putty). Remember, always `cd` into the directory containing the `Vagrantfile` for the Vagrant commands to work.
 
 ```
 $ vagrant ssh
