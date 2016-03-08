@@ -11,11 +11,11 @@ You will work with a dataset of Tweets encoded in multiple ways to compute
 some summary information and reflect on the pros and cons of each
 approach.
 
-**The Spirit** of this lab is to get you to think about different trade-offs
+**The spirit** of this lab is to get you to think about different trade-offs
 that unstructured and structured data provide to you, as the developer.
 
 **We will discuss learning from this lab in lecture on Wednesday March 9th, so
-it will be most benefital if attempted before lecture that day**
+it will be most beneficial if attempted before lecture that day**
 
 # Setup
 
