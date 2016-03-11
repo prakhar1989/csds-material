@@ -88,9 +88,13 @@ listings](https://code.google.com/p/protobuf/wiki/ThirdPartyAddOns).*
 ### Step 3: Analyses on database records
 
 In this step, you will be working with the twitter data encoded as a
-sqlite3 database file.  The file, `twitter.db` was generated using
-`python createdb.py`, but you do not need to re-run this script.  The
-schemas are defined in `twitter.ddl`. Note that this schema does not
+sqlite3 database file.  Run the following to create the database (it'll take a while).
+
+```
+$ python createdb.py
+```
+
+The schemas are defined in `twitter.ddl`. Note that this schema does not
 include all fields: we includes only the subset of fields that are
 necessary for answering the questions.
 
