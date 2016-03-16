@@ -4,13 +4,8 @@ You can either setup a local virtual machine, or run a virtual machine in Amazon
 
 ### Option 1: Local setup
 
-Start by installing [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads). If you've done the Hadoop homeworks, you should already have Virtualbox installed.
+If you have linux/OS X machine you are already set up. Others can use virutal machine from last lab. 
 
-Once Vagrant is installed, check your installation by running `vagrant -v` on the command line. 
-```
-$ vagrant -v
-Vagrant 1.7.4
-```
 The next step is to clone this repository on your computer.
 ```
 $ git clone -b data-processing https://github.com/prakhar1989/csds-material 
