@@ -1,4 +1,4 @@
-These are setup instructions for the [data structuring lab](./README.md)
+These are setup instructions for the [data processing lab](./README.md)
 
 You can either setup a local virtual machine, or run a virtual machine in Amazon EC2.
 
@@ -13,7 +13,7 @@ Vagrant 1.7.4
 ```
 The next step is to clone this repository on your computer.
 ```
-$ git clone -b ewu-csds https://github.com/prakhar1989/csds-material 
+$ git clone -b data-processing https://github.com/prakhar1989/csds-material 
 ```
 
 **Starting the VM**
@@ -39,8 +39,6 @@ Last login: Fri Sep 14 06:23:18 2012 from 10.0.2.2
 
 vagrant@precise64:~$  cd /vagrant
 
-vagrant@precise64:/vagrant$ ls
-createdb.py  encode.py  README.md  twitter.db  twitter.ddl  twitter.json.gz  twitter.pb  twitter_pb2.py  twitter_pb2.pyc  twitter.proto  Vagrantfile
 ```
 Now that you're into the VM, the way to access the data that's on your host machine is via the `/vagrant` folder. By default, Vagrant will automatically enable sharing of the `/vagrant` folder between the guest and the host. `CD`ing into the `/vagrant` folder will show all your files.
 
@@ -78,10 +76,8 @@ From within your EC2 instance, run these commands to install the tools needed to
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 $ echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 $ sudo apt-get update
-$ sudo apt-get -yqq install python-pip python-dev protobuf-compiler sqlite3 mongodb-org
-$ sudo pip install protobuf sqlalchemy
 $ sudo apt-get install git
-$ git clone -b ewu-csds https://github.com/prakhar1989/csds-material
+$ git clone -b data-processing https://github.com/prakhar1989/csds-material
 $ cd csds-material
 ```
 
