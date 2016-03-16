@@ -1,0 +1,33 @@
+Series Id: LNU02000000
+Series title: (Unadj) Employment Level
+Labor force status: Employed
+Type of data: Number in thousands
+Age: 16 years and over
+Series Id: LNU03000000
+Series title: (Unadj) Unemployment Level
+Labor force status: Unemployed
+Type of data: Number in thousands
+Age: 16 years and over
+Series Id: LNU04000000
+Series title: (Unadj) Unemployment Level
+Labor force status: Unemployed
+Type of data: Number in thousands
+Age: 16 years and over
+Series Id: LNU02032201
+Series title: (Unadj) Employment Level - Management, Professional, and Related Occupations
+Labor force status: Employed
+Type of data: Number in thousands
+Age: 16 years and over
+Occupation: Management, professional, and related occupations (0008-3540)
+Series Id: LNU05000000
+Series title: (Unadj) Unemployment Level
+Labor force status: Unemployed
+Type of data: Number in thousands
+Age: 16 years and over
+Series Id: LNU03032215
+Series title: (Unadj) Unemployment Level - Management, Professional, and Related Occupations
+Labor force status: Unemployed
+Type of data: Number in thousands
+Age: 16 years and over
+Labor force experience: Experienced
+Occupation: Management, professional, and related occupations (0008-3540)
