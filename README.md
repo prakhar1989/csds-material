@@ -54,7 +54,7 @@ For the purpose of explanation columns are separated by ||. You can choose any p
 
 It may help to skip first few lines that contains html code, so that you process actual records.
 
-**note**: `lab3/wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `lab3/` folder.
+**note**: `wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `csds-material/` folder.
 
 
 #### Questions
