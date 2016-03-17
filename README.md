@@ -2,7 +2,7 @@
 
 *Assigned: 16 March *
 
-*Due: 23rd March 5 PM (before class)*
+*Due: 27th March 11:59 PM*
 
 
 In this lab, you will use various types of tools -- from high-level tools like Data Wrangler to command line tools like `sed` and `awk` -- to perform data parsing and extraction from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
