@@ -49,7 +49,11 @@ Your job is to generate `matches_test.csv`, a mapping that looks like `matches_t
 
 ## Development Environment
 
-For this lab, we've partnered with [Instabase](https://www.instabase.com/) to provide you with a hosted IPython environment. To get started, create an account on the [website](https://www.instabase.com/account/register) - make sure you sign up with your columbia email. After you've signed up, login and create a new IPython notebook. For the purposes of this assignment, the datasets have already been uploaded on [Instabase](https://www.instabase.com/Prakhar/er-assignment/fs/Instabase%20Drive/files/datasets/).
+For this lab, we've partnered with [Instabase](https://www.instabase.com/) to provide you with a hosted IPython environment. To get started, create an account on the [website](https://www.instabase.com/account/register) - make sure you sign up with your columbia email. After you've signed up, login and follow the steps below - 
+
+1. Create a new repository. Give it a name / description of your liking and set the visibility to private.
+2. Once the repo is created, click on the "collaborators" button on the sidebar and add `Prakhar` as a collaborator.
+3. Lastly, create a new IPython notebook. For the purposes of this assignment, the datasets have already been uploaded on [Instabase](https://www.instabase.com/Prakhar/er-assignment/fs/Instabase%20Drive/files/datasets/).
 
 To use the dataset in your notebook, you can use the following snippet of code - 
 
@@ -69,7 +73,18 @@ foursquare_test = json.loads(ib.open(PATH + FILES["foursquare_test"]).read())
 print "total records:", len(foursquare_test)
 ```
 
-
+**Installing packages**
+The instabase platform already comes installed with the popular data-science and machine learning packages. To get the complete list, you can interact with the `bash` like so in your IPython notebook
+```
+%%bash
+pip freeze
+```
+If you want to install a certain package that doesn't exist, you can install it on your own
+```
+%%bash
+pip install requests
+```
+[Here's](https://www.instabase.com/user/Prakhar-nb/notebooks/Prakhar/er-assignment/fs/Instabase%20Drive/notebooks/hello-instabase/getting-started.ipynb) a sample IPython that shows you how can start on Instabase.
 
 ## Upload your best results to the leaderboard
 
@@ -82,7 +97,7 @@ On the website, you will need to submit your result file (`matches_test.csv`) an
 
 ## Write up Instructions
 
-In addition to competing in the challenge, please write a detailed explanation of what you have done in the IPython notebook itself.
+In addition to competing in the challenge, please write a detailed explanation of what you have done in the IPython notebook itself (use the [markdown cell](http://jupyter-notebook.readthedocs.org/en/latest/examples/Notebook/rstversions/Working%20With%20Markdown%20Cells.html))
 
 The write up should contain:
 
