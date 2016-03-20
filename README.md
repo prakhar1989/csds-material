@@ -49,6 +49,27 @@ Your job is to generate `matches_test.csv`, a mapping that looks like `matches_t
 
 ## Development Environment
 
+For this lab, we've partnered with [Instabase](https://www.instabase.com/) to provide you with a hosted IPython environment. To get started, create an account on the [website](https://www.instabase.com/account/register) - make sure you sign up with your columbia email. After you've signed up, login and create a new IPython notebook. For the purposes of this assignment, the datasets have already been uploaded on [Instabase](https://www.instabase.com/Prakhar/er-assignment/fs/Instabase%20Drive/files/datasets/).
+
+To use the dataset in your notebook, you can use the following snippet of code - 
+
+```python
+import json
+
+PATH = "Prakhar/er-assignment/fs/Instabase%20Drive/files/datasets/"
+FILES = {
+    "foursquare_test": "foursquare_test_hard.json",
+    "locu_test": "locu_test_hard.json",
+    "matches": "matches_train_hard.csv",
+    "foursquare_train": "foursquare_train_hard.json",
+    "locu_train": "locu_train_hard.json"
+}
+
+foursquare_test = json.loads(ib.open(PATH + FILES["foursquare_test"]).read())
+print "total records:", len(foursquare_test)
+```
+
+
 
 ## Upload your best results to the leaderboard
 
