@@ -55,7 +55,7 @@ For this lab, we've partnered with [Instabase](https://www.instabase.com/) to pr
 2. Once the repo is created, click on the "collaborators" button on the sidebar and add `Prakhar` as a collaborator.
 3. Lastly, create a new IPython notebook. For the purposes of this assignment, the datasets have already been uploaded on [Instabase](https://www.instabase.com/Prakhar/er-assignment/fs/Instabase%20Drive/files/datasets/).
 
-To use the dataset in your notebook, you can use the following snippet of code - 
+To use the dataset in your notebook, you can use the following snippet of code. See this in action in this [IPython notebook](https://www.instabase.com/user/Prakhar-nb/notebooks/Prakhar/er-assignment/fs/Instabase%20Drive/notebooks/hello-instabase/getting-started.ipynb).
 
 ```python
 import json
@@ -84,7 +84,7 @@ If you want to install a certain package that doesn't exist, you can install it 
 %%bash
 pip install requests
 ```
-[Here's](https://www.instabase.com/user/Prakhar-nb/notebooks/Prakhar/er-assignment/fs/Instabase%20Drive/notebooks/hello-instabase/getting-started.ipynb) a sample IPython that shows you how can start on Instabase.
+
 
 ## Upload your best results to the leaderboard
 
