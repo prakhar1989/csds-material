@@ -1,6 +1,6 @@
 # Data Lab: Entity Resolution
 
-*Due:  12:59 PM (just before class)*
+*Due:  04/13/2016, 11:59 PM*
 
 In this lab, you will take two datasets that describe the same
 entities, and identify which entity in one dataset is the same as an
