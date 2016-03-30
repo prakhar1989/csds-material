@@ -1,4 +1,4 @@
-## Apache Spark
+## Spark Mini-Homework
 
 This will be a quick guide to get you introduced with one of the most popular and effective tools used for working with big data. Apache Spark is a cluster computing platform designed to be fast and general-purpose. On the speed side, Spark extends the popular MapReduce model to efficiently suport more types of computations, including interactive queries and stream processing.
 
