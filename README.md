@@ -101,3 +101,6 @@ Hadoop  : <count>
 ![img](http://i.imgur.com/bsUOS5O.png)
 
 - Similar to above, you can try solving the rest of the queries.
+
+### Submission Instructions
+All your content should be in the IPython notebook which should be directly submitted (`.ipynb` file) on Courseworks. Please name the file as `<uni>.ipynb`.
