@@ -23,6 +23,11 @@ The easiest way to try out Hadoop locally as a developer is by running a preconf
 #### Running Jobs
 
 Before we start running MapReduce jobs, we first need to get the code. When the VM first starts, the terminal should already be open. Get started by cloning this repository.
+#### Notice
+For anyone unable to clone the git repository, for the security encoding reasons:           
+run this command in the terminal first:             
+
+sudo yum install ca-certificates
 
 ```
 $ cd ~/Desktop
