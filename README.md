@@ -26,9 +26,9 @@ Before we start running MapReduce jobs, we first need to get the code. When the 
 #### Notice
 For anyone unable to clone the git repository, for the security encoding reasons:           
 run this command in the terminal first:             
-
+```
 sudo yum install ca-certificates
-
+```
 ```
 $ cd ~/Desktop
 $ git clone https://github.com/prakhar1989/csds-material
