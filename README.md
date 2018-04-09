@@ -23,7 +23,12 @@ The easiest way to try out Hadoop locally as a developer is by running a preconf
 #### Running Jobs
 
 Before we start running MapReduce jobs, we first need to get the code. When the VM first starts, the terminal should already be open. Get started by cloning this repository.
-
+#### Notice
+For anyone unable to clone the git repository, for the security encoding reasons:           
+run this command in the terminal first:             
+```
+sudo yum install ca-certificates
+```
 ```
 $ cd ~/Desktop
 $ git clone https://github.com/prakhar1989/csds-material
@@ -46,6 +51,8 @@ The job that we're going to run is the canonical wordcount example - it counts t
 
 #### HDFS
 HDFS or Hadoop FileSystem is the filesystem where Hadoop expects the input files to be. When a job completes, HDFS is also where the final result will be placed by Hadoop. So the first thing we need to do, is to move our input files into HDFS. 
+### Notice
+make sure you are in the csds file, where has "input" file.           
 ```
 $ hadoop fs -ls /user/
 drwxr-xr-x   - hue      supergroup          0 2013-09-05 20:08 /user/hive
@@ -201,6 +208,8 @@ AWS will then go ahead and follow that up with the cluster creation screen -
 ![img](http://i.imgur.com/eF4pPVK.png)
 
 The next step is to add a MR step. Click on **Add Step** and fill in the details as shown below. Be sure to change these paths for your S3 bucket.
+### Notice
+Make sure the output path is "output", rename or build a new file may cause your step failed.               
 
 ![img](http://i.imgur.com/AuXphLo.png)
 
